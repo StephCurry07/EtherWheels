@@ -1,20 +1,17 @@
 // EnlargedCardModal.jsx
 
-import React from 'react';
-import styles from "../styles/enlarged-card-modal.module.css";
-import PlaceIcon from '@mui/icons-material/Place';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
-import PersonIcon from '@mui/icons-material/Person';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import GroupIcon from '@mui/icons-material/Group';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
 import HailIcon from '@mui/icons-material/Hail';
-import PaymentsIcon from '@mui/icons-material/Payments';
-import LocaltaxiIcon from '@mui/icons-material/LocalTaxi';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
+import LocaltaxiIcon from '@mui/icons-material/LocalTaxi';
+import PersonIcon from '@mui/icons-material/Person';
+import PlaceIcon from '@mui/icons-material/Place';
 import StraightIcon from '@mui/icons-material/Straight';
+import styles from "@app/styles/enlarged-card-modal.module.css";
 
 const EnlargedCardModal = ({ ride, onClose }) => {
     const [

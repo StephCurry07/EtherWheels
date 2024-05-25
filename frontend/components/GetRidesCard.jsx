@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
-import EnlargedCardModal from "@app/components/EnlargedCardModal";
-import styles from "../styles/get-rides.module.css";
-import PlaceIcon from '@mui/icons-material/Place';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import EnlargedCardModal from "@components/EnlargedCardModal";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PaymentsIcon from '@mui/icons-material/Payments';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import HomeIcon from '@mui/icons-material/Home';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import PlaceIcon from '@mui/icons-material/Place';
+import { useState } from "react";
+import styles from "@app/styles/get-rides.module.css";
 
 const GetRidesCard = ({ ride, bookRide, exchangeRate }) => {
   const [

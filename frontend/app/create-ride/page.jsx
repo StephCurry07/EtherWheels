@@ -1,22 +1,21 @@
 "use client";
 
-import React, { Suspense } from "react";
-import { useState, useEffect } from "react";
-import styles from "../styles/user-registration.module.css";
+import { Autocomplete, TextField } from "@mui/material";
+import { DatePicker, LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-import { LocalizationProvider, DateTimePicker } from "@mui/x-date-pickers";
-import { TextField, Autocomplete } from "@mui/material";
-import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import styles from "../styles/user-registration.module.css";
 
 import { ethers } from "ethers";
 import abi from "../../utils/CarPooling.json";
-
+// import 'dotenv/config';
 const contractAddress = abi.contractAddress;
 const contractABI = abi.abi;
-const apiKey = '38424df195msh9ee1dbed38d22d0p1dd980jsn41f9b6f44895';
-const apiKey1 = '9caecd97e6mshc92abd2cf63d44fp140050jsn9eaf39b7a276';
-const apiKey2 = '02c9ea6c62mshefda0d54bedaa0ep1b07dajsnf5b34ba70760';
+
+const apiKey1 = process.env.NEXT_PUBLIC_RAPIDAPI_KEY1;
+const apiKey = process.env.NEXT_PUBLIC_RAPIDAPI_KEY2;
+const apiKey2 = process.env.NEXT_PUBLIC_RAPIDAPI_KEY3;
 
 const getStateid = (str) => {
   const lowerCaseStr = str.toLowerCase();
@@ -54,6 +53,7 @@ const createRide = () => {
   const mileage = formData.mileage;
   const maxPassengers = formData.carCapacity;
 
+  
   useEffect(() => {
     const fetchExchangeRate = async () => {
       try {
@@ -93,7 +93,7 @@ const createRide = () => {
               polygon_threshold: '0.0',
             },
             headers: {
-              'X-RapidAPI-Key': apiKey2,
+              'X-RapidAPI-Key': apiKey1,
               'X-RapidAPI-Host': 'forward-reverse-geocoding.p.rapidapi.com',
             },
           };
@@ -108,7 +108,7 @@ const createRide = () => {
           setSourceInput(cityName);
         } catch (error) {
           console.error('Error fetching city:', error);
-          setError(error);
+          // setError(error);
         }
       } else {
         console.log('Geolocation is not supported by this browser.');
@@ -133,8 +133,8 @@ const createRide = () => {
         }
       };
       const response = await axios.request(options);
-      const dist = response.data.distance_in_kilometers;
-      console.log(response.data);
+      const dist = response.data.distance_in_kilometers.toFixed(2);
+      // console.log(response.data);
       setDistance(dist);
       return dist;
     } catch (error) {
@@ -169,8 +169,8 @@ const createRide = () => {
         }
       };
       const response = await axios.request(options);
-      const dist = response.data.route.car.distance;
-      console.log(dist);
+      const dist = response.data.route.car.distance.toFixed(2);
+      // console.log(dist);
       setDistance(dist);
       return dist;
     } catch (error) {
@@ -397,7 +397,7 @@ const createRide = () => {
             radius: '500',
           },
           headers: {
-            'X-RapidAPI-Key': apiKey2,
+            'X-RapidAPI-Key': apiKey1,
             'X-RapidAPI-Host': 'place-autocomplete1.p.rapidapi.com',
           },
         };
@@ -421,7 +421,7 @@ const createRide = () => {
           radius: '500',
         },
         headers: {
-          'X-RapidAPI-Key': apiKey2,
+          'X-RapidAPI-Key': apiKey1,
           'X-RapidAPI-Host': 'place-autocomplete1.p.rapidapi.com',
         },
       };
@@ -718,11 +718,9 @@ const createRide = () => {
           <button type="submit" className={`${styles.submitButton} ${styles.center__relativedriver}`}>
             Submit
           </button>
-          {/* {distance && ( */}
-          <p className={styles.distance}>
+          {/* <p className={styles.distance}>
             You will be travelling {distance} kilometers.
-          </p>
-          {/* )} */}
+          </p> */}
         </form>
       </div>
       {/* <script src="http://localhost:8097"></script> */}

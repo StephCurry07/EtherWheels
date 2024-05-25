@@ -1,12 +1,11 @@
 'use client';
 
+import { Autocomplete, TextField } from "@mui/material";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import styles from '../../styles/user-registration.module.css';
-import { useSearchParams } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
-import { TextField, Autocomplete } from "@mui/material";
+import { useEffect, useState } from 'react';
+import styles from '../../styles/user-registration.module.css';
 
 const DriverRegistration = ({ data }) => {
   const [formData, setFormData] = useState({

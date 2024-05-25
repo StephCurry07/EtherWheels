@@ -1,15 +1,15 @@
 "use client";
-import React, { useState, useEffect,useRef } from "react";
+import GetRidesCard from "@components/GetRidesCard";
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { Autocomplete, TextField } from "@mui/material";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { ethers } from "ethers";
-import GetRidesCard from "@app/components/GetRidesCard";
+import { ErrorDecoder } from "ethers-decode-error";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import abi from "../../utils/CarPooling.json";
 import styles from "../styles/get-rides.module.css";
-import { useSearchParams } from "next/navigation";
-import { ErrorDecoder } from "ethers-decode-error";
-import { Autocomplete, TextField } from "@mui/material";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-import { LocalizationProvider, DateTimePicker } from "@mui/x-date-pickers";
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 const GetRides = () => {
   const [allRides, setAllRides] = useState([]);

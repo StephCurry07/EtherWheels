@@ -1,5 +1,4 @@
-import React from "react";
-import "../styles/my-rides-card.css";
+import "@app/styles/my-rides-card.css";
 
 const MyRidesCard = ({ ride, cancelRide, completed, role, exchangeRate }) => {
   const [

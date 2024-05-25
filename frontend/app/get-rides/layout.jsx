@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import Header from "../components/Header";
 import { useSearchParams } from "next/navigation";
+import Header from "@components/Header";
 
 const registerlayout = ({ children }) => {
   const searchParams = useSearchParams();

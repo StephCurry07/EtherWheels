@@ -1,12 +1,8 @@
 "use client";
-import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import Papa from 'papaparse';
-import { useEffect } from "react";
-import { TextField, Autocomplete } from "@mui/material";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import styles from "../../styles/user-registration.module.css";
-import { useSearchParams } from "next/navigation";
 
 const PassengerRegistration = () => {
   const searchParams = useSearchParams();

@@ -1,9 +1,9 @@
-import { AppBar, Toolbar, Typography, MenuItem, Menu, IconButton, Tooltip, Button, Avatar } from "@mui/material";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import React from "react";
+import { AppBar, Avatar, Button, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from "@mui/material";
 import Link from "next/link";
+import React from "react";
 
 const Header = ({ role, balance, connectedAccount }) => {
   const _connectedAccount =
